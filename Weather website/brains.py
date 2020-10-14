@@ -23,12 +23,13 @@ weathers.insert(0, weather)
 for i in range(len(weathers)):
 	weathers[i] = weathers[i][0:2]+" F"
 
-#opens index file and places new data
+#opens index file 
 with open('index.html') as f:
 	soup = BeautifulSoup(f, 'html.parser')
 
 htmldivs = soup.find_all('div')
 
+#places new data and closes file
 for i in range(len(htmldivs)):
 	htmldivs[i].h2.string = days[i]
 	htmldivs[i].p.string = weathers[i]
